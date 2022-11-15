@@ -68,6 +68,7 @@ const adaptableOptions: AdaptableOptions = {
     },
     Dashboard: {
       Revision: STATE_REVISION,
+      DashboardTitle: 'AdapTable FDC3 Demo',
       Tabs: [
         {
           Name: 'Demo',

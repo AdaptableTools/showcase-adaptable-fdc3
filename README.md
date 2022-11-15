@@ -1,10 +1,10 @@
-# example-adaptable-react-aggrid-template
+# AdapTable FDC3 Showcase
 
-## React Wrapper Example
+## FDC3 Integration in AdapTable Example
 
-This is a very basic example of how to install and get started with the Adaptable React Wrapper.
+This is a very basic example of FDC3 inter-op capabilities in an AdapTable instance
 
-It uses v.13.x (AdapTable Rx) of AdapTable and v.28.x of AG GRID
+For more information on how to integrate FDC3 in Adaptable see the [FDC3 AdapTable Documentation](https://docs.adaptabletools.com/guide/handbook-using-fdc3)
 
 For full information on how to use the AdapTable React Wrapper see the [AdapTable Documentation](https://docs.adaptabletools.com/learn/react-overview).
 
