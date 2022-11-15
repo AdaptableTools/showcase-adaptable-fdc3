@@ -12,7 +12,7 @@ import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
 
 import './App.css';
 
-import { AdaptableAgGrid } from './AdaptableAgGrid';
+import { AdaptableAgGrid } from './grid/AdaptableAgGrid';
 
 function App() {
   return (
