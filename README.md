@@ -1,6 +1,4 @@
-# AdapTable FDC3 Showcase
-
-## FDC3 Integration in AdapTable Example
+# AdapTable FDC3 Integration Showcase
 
 This is a very basic example of FDC3 interop capabilities in AdapTable.
 
@@ -11,23 +9,68 @@ The example illustrates some of  AdapTable's [FDC3 capabilities](https://docs.ad
 ### FDC3 Columns
 The demo contains 3 FDC3 Columns:
 
-- an Instrument Column which broadcasts context
-- a Position Column (that uses the Instrument Column) and broadcasts context
-- a Contact Column which raises the `ViewContact` FDC3 Intent
+- an `Instrument` Column which broadcasts context
+- a `Position` Column (that uses the Instrument Column) and broadcasts context
+- a `Contact` Column which raises the `ViewContact` FDC3 Intent
 
 ### Available FDC3 Intents
 The demo listens to 3 FDC3 Intents:
-- ViewQuote
-- ViewInstrument
-- ViewContact
+- `ViewQuote`
+- `ViewInstrument`
+- `ViewContact`
 
 > In the default implementation it merely logs the Context but you can update this to perform more useful interop
 
-### Installation
+### Finance Plugin
+All AdapTable FDC3 logic is contained in the [Finance Plugin]([https://docs.adaptabletools.com/guide/handbook-using-fdc3](https://docs.adaptabletools.com/guide/reference-plugins-overview#finance)
+
+The code to define the FDC3 Columns and Intents is:
+
+```
+plugins: [
+  finance({
+    fdc3Columns: {
+      instrumentColumns: [
+        {
+          columnId: 'Instrument',
+          nameColumnId: 'Instrument',
+          tickerColumnId: 'Ticker',
+          cusipColumnId: 'Cusip',
+          showBroadcastContextMenu: true,
+        },
+      ],
+      positionColumns: [
+        {
+          columnId: 'Position',
+          instrumentColumnId: 'Instrument',
+          showBroadcastContextMenu: true,
+        },
+      ],
+      contactColumns: [
+        {
+          columnId: 'LastUpdatedByName',
+          nameColumnId: 'LastUpdatedByName',
+          emailColumnId: 'LastUpdatedByEmail',
+          intents: ['ViewContact'],
+        },
+      ],
+    },
+    availableFDC3Intents: ['ViewQuote', 'ViewInstrument', 'ViewContact'],
+    onFDC3Intent: (intent: any, context, adaptableApi) => {
+      logFdc3IntentInput(intent, context, adaptableApi);
+    },
+    onFDC3Context: (context, adaptableApi) => {
+      logFdc3ContextInput(context, adaptableApi);
+    },
+  }),
+ ],
+```
+
+## Installation
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
 
-### Running for development
+## Running for development
 
 Execute the following command
 
