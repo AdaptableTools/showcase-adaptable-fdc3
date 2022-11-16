@@ -38,6 +38,11 @@ To see AdapTable in action visit our [Demo Site](https://demo.adaptabletools.com
 
 Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://docs.adaptabletools.com).
 
+For more information on how to integrate FDC3 in Adaptable see the [FDC3 AdapTable Documentation](https://docs.adaptabletools.com/guide/handbook-using-fdc3)
+
+For full information on how to use the AdapTable React Wrapper see the [AdapTable React Documentation](https://docs.adaptabletools.com/learn/react-overview).
+
+
 ## More Information
 
 General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com)
