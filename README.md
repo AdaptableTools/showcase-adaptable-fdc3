@@ -4,7 +4,15 @@
 
 This is a very basic example of FDC3 interop capabilities in AdapTable.
 
-It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/react-overview) instance which contains some dummy Instrument data and illustrates some [AdapTable FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
+It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/react-overview) instance which contains some dummy Instrument data.
+
+The example illustrates some [AdapTable FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
+
+### FDC3 Columns
+There are 3 FDC3 Columns:
+
+- providing an FDC3 Instrument Column which broadcasts context
+- providing an FDC3
 
 ### Installation
 
