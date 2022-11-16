@@ -4,11 +4,7 @@
 
 This is a very basic example of FDC3 interop capabilities in AdapTable.
 
-It provides a small AdapTable instance with some dummy Instrument data.
-
-For more information on how to integrate FDC3 in Adaptable see the [FDC3 AdapTable Documentation](https://docs.adaptabletools.com/guide/handbook-using-fdc3)
-
-For full information on how to use the AdapTable React Wrapper see the [AdapTable Documentation](https://docs.adaptabletools.com/learn/react-overview).
+It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/react-overview) instance which contains some dummy Instrument data and illustrates some [AdapTable FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
 
 ### Installation
 
