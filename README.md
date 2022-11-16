@@ -22,7 +22,7 @@ The demo listens to 3 FDC3 Intents:
 > In the default implementation it merely logs the Context but you can update this to perform more useful interop
 
 ### Finance Plugin
-All AdapTable FDC3 logic is contained in the [Finance Plugin]([https://docs.adaptabletools.com/guide/handbook-using-fdc3](https://docs.adaptabletools.com/guide/reference-plugins-overview#finance)
+All AdapTable FDC3 logic is contained in the [Finance Plugin](https://docs.adaptabletools.com/guide/reference-plugins-overview#finance)
 
 The code to define the FDC3 Columns and Intents is:
 

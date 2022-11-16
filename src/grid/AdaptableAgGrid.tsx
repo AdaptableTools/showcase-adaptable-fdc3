@@ -12,7 +12,6 @@ import AdaptableReact, {
 } from '@adaptabletools/adaptable-react-aggrid';
 import finance from '@adaptabletools/adaptable-plugin-finance';
 import { logFdc3ContextInput, logFdc3IntentInput, logFdc3Output } from '../fdc3/fdc3EventLogger';
-import { setupFrameworkComponents } from '@adaptabletools/adaptable-react-aggrid/src/setupFrameworkComponents';
 
 const STATE_REVISION = 1;
 
