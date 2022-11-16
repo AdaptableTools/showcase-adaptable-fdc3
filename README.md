@@ -6,13 +6,22 @@ This is a very basic example of FDC3 interop capabilities in AdapTable.
 
 It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/react-overview) instance which contains some dummy Instrument data.
 
-The example illustrates some [AdapTable FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
+The example illustrates some of  AdapTable's [FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
 
 ### FDC3 Columns
-There are 3 FDC3 Columns:
+The demo contains 3 FDC3 Columns:
 
-- providing an FDC3 Instrument Column which broadcasts context
-- providing an FDC3
+- an Instrument Column which broadcasts context
+- a Position Column (that uses the Instrument Column) and broadcasts context
+- a Contact Column which raises the `ViewContact` FDC3 Intent
+
+### Available FDC3 Intents
+The demo listens to 3 FDC3 Intents:
+- ViewQuote
+- ViewInstrument
+- ViewContact
+
+> In the default implementation it merely logs the Context but you can update this to perform more useful interop
 
 ### Installation
 
