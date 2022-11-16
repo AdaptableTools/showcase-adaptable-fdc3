@@ -2,7 +2,9 @@
 
 ## FDC3 Integration in AdapTable Example
 
-This is a very basic example of FDC3 inter-op capabilities in an AdapTable instance
+This is a very basic example of FDC3 interop capabilities in AdapTable.
+
+It provides a small AdapTable instance with some dummy Instrument data.
 
 For more information on how to integrate FDC3 in Adaptable see the [FDC3 AdapTable Documentation](https://docs.adaptabletools.com/guide/handbook-using-fdc3)
 
