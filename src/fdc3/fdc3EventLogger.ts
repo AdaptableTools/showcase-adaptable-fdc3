@@ -9,11 +9,15 @@ import {
 export const logFdc3Output = (adaptableApi: AdaptableApi) => {
   adaptableApi.eventApi.on('FDC3MessageSent', (eventInfo: AdaptableFDC3EventInfo) => {
     adaptableApi.systemStatusApi.setInfoSystemStatus(
-      `OUT :: ${eventInfo.eventType === 'RaiseIntent' ? 'Raise Intent' : 'Broadcast context'} ${
-        eventInfo.intent ?? ''
-      }: ${eventInfo?.context?.id?.ticker ?? ''} ${eventInfo?.context?.id?.CUSIP ?? ''} ${
-        eventInfo?.context?.name ?? ''
-      } ${eventInfo?.context?.id?.email ?? ''}`,
+      `OUT :: ${
+        eventInfo.eventType === 'RaiseIntent'
+          ? 'Raise Intent'
+          : eventInfo.eventType === 'RaiseIntentForContext'
+          ? 'Raise Intent for Context'
+          : 'Broadcast'
+      } ${eventInfo.intent ?? ''}: ${eventInfo?.context?.id?.ticker ?? ''} ${
+        eventInfo?.context?.id?.CUSIP ?? ''
+      } ${eventInfo?.context?.name ?? ''} ${eventInfo?.context?.id?.email ?? ''}`,
       `${eventInfo.intent ?? ''}(${JSON.stringify(eventInfo.context)})`
     );
   });
