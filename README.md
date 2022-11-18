@@ -7,63 +7,89 @@ It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/reac
 The example illustrates some of  AdapTable's [FDC3 capabilities](https://docs.adaptabletools.com/guide/handbook-using-fdc3).
 
 ### FDC3 Columns
-The demo contains 3 FDC3 Columns:
+The demo contains 3 [FDC3 Columns](https://docs.adaptabletools.com/guide/handbook-using-fdc3-columns):
 
-- an `Instrument` Column which broadcasts context
-- a `Position` Column (that uses the Instrument Column) and broadcasts context
-- a `Contact` Column which raises the `ViewContact` FDC3 Intent
+- `Instrument`:
+  - provides a ContextMenu for broadcasting the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context
+- `Ticker`:
+  - raises an Intent for the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context
+- `Contact`:
+  - raises the [StartChat](https://fdc3.finos.org/docs/intents/ref/StartChat) Intent for the corresponding [Contact](https://fdc3.finos.org/docs/context/ref/Contact)
 
-### Available FDC3 Intents
+### Available FDC3 Intents Listeners
 The demo listens to 3 FDC3 Intents:
-- `ViewQuote`
 - `ViewInstrument`
+  - it filters the existing trades by the given Instrument Ticker
+  - e.g. `{
+    type: "fdc3.instrument",
+    id: {
+      ticker: "MSFT"
+    }
+    }`
 - `ViewContact`
-
-> In the default implementation it merely logs the Context but you can update this to perform more useful interop
+  - it filters the existing trades by the given Contact email
+  - e.g. `{
+    type: "fdc3.contact",
+    id: {
+    email: "test@mail.com"
+    }
+    }`
+- `ViewQuote`
+  - logs the context
 
 ### Finance Plugin
-All AdapTable FDC3 logic is contained in the [Finance Plugin](https://docs.adaptabletools.com/guide/reference-plugins-overview#finance)
+All AdapTable FDC3 logic is defined declaratively in the [Finance Plugin](https://docs.adaptabletools.com/guide/reference-plugins-overview#finance)
 
 The code to define the FDC3 Columns and Intents is:
 
 ```
-plugins: [
-  finance({
-    fdc3Columns: {
-      instrumentColumns: [
-        {
-          columnId: 'Instrument',
-          nameColumnId: 'Instrument',
-          tickerColumnId: 'Ticker',
-          cusipColumnId: 'Cusip',
-          showBroadcastContextMenu: true,
+const financeOptions: FinancePluginOptions = {
+  fdc3Columns: {
+    instrumentColumns: [
+      {
+        columnId: 'instrument',
+        nameColumnId: 'instrument',
+        tickerColumnId: 'ticker',
+        cusipColumnId: 'cusip',
+        showBroadcastContextMenu: true,
+      },
+      {
+        columnId: 'ticker',
+        nameColumnId: 'instrument',
+        tickerColumnId: 'ticker',
+        cusipColumnId: 'cusip',
+        showRaiseIntentForContextMenu: true,
+        raiseIntentForContextMenuLabel: ({ gridCell }) => {
+          return `Raise Intent for ${gridCell.displayValue}`;
         },
-      ],
-      positionColumns: [
-        {
-          columnId: 'Position',
-          instrumentColumnId: 'Instrument',
-          showBroadcastContextMenu: true,
-        },
-      ],
-      contactColumns: [
-        {
-          columnId: 'LastUpdatedByName',
-          nameColumnId: 'LastUpdatedByName',
-          emailColumnId: 'LastUpdatedByEmail',
-          intents: ['ViewContact'],
-        },
-      ],
-    },
-    availableFDC3Intents: ['ViewQuote', 'ViewInstrument', 'ViewContact'],
-    onFDC3Intent: (intent: any, context, adaptableApi) => {
-      logFdc3IntentInput(intent, context, adaptableApi);
-    },
-    onFDC3Context: (context, adaptableApi) => {
-      logFdc3ContextInput(context, adaptableApi);
-    },
-  }),
- ],
+      },
+    ],
+    contactColumns: [
+      {
+        columnId: 'user',
+        nameColumnId: 'user',
+        emailColumnId: 'userEmail',
+        intents: ['StartChat'],
+      },
+    ],
+  },
+  availableFDC3Intents: ['ViewQuote', 'ViewInstrument', 'ViewContact'],
+  onFDC3Intent: (intent: any, context, adaptableApi) => {
+    const { type } = context;
+    adaptableApi.systemStatusApi.setInfoSystemStatus(
+      `IN :: Intent (${intent}, ${type})`,
+      JSON.stringify(context)
+    );
+  },
+  onFDC3Context: (context, adaptableApi) => {
+    const { type } = context;
+     adaptableApi.systemStatusApi.setSuccessSystemStatus(
+      `IN :: Context Broadcast(${type})`,
+      JSON.stringify(context)
+    );
+    handleIncomingContextBroadcast(context, adaptableApi);
+  },
+};
 ```
 
 ## Installation

@@ -1,20 +1,22 @@
 import { GridOptions } from '@ag-grid-community/core';
 import { columnDefs, defaultColDef } from './columnDefs';
-import { rowData } from './rowData';
 
 export const gridOptions: GridOptions = {
   defaultColDef,
   columnDefs,
-  rowData,
-  sideBar: true,
+  enableCharts: true,
   enableRangeSelection: true,
+  suppressColumnVirtualisation: false,
+  suppressMenuHide: true,
+  sideBar: ['adaptable'],
+  rowSelection: 'multiple',
+  autoGroupColumnDef: {
+    sortable: true,
+  },
   statusBar: {
     statusPanels: [
-      {
-        key: 'Left Panel',
-        statusPanel: 'AdaptableStatusPanel',
-        align: 'left',
-      },
+      { statusPanel: 'agTotalRowCountComponent', align: 'left' },
+      { statusPanel: 'agFilteredRowCountComponent', align: 'left' },
       {
         key: 'Center Panel',
         statusPanel: 'AdaptableStatusPanel',
