@@ -10,15 +10,15 @@ The example illustrates some of  AdapTable's [FDC3 capabilities](https://docs.ad
 The demo contains 3 [FDC3 Columns](https://docs.adaptabletools.com/guide/handbook-using-fdc3-columns):
 
 - `Instrument`:
-  - provides a ContextMenu for broadcasting the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context
+  - broadcasts the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context (via ContextMenu)
 - `Ticker`:
-  - raises an Intent for the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context
+  - raises an Intent for the corresponding [Instrument](https://fdc3.finos.org/docs/context/ref/Instrument) context (via ContextMenu)
 - `Contact`:
-  - raises the [StartChat](https://fdc3.finos.org/docs/intents/ref/StartChat) Intent for the corresponding [Contact](https://fdc3.finos.org/docs/context/ref/Contact)
+  - raises the [StartChat](https://fdc3.finos.org/docs/intents/ref/StartChat) Intent for the corresponding [Contact](https://fdc3.finos.org/docs/context/ref/Contact) (via ContextMenu)
 
 ### Available FDC3 Intents Listeners
 The demo listens to 3 FDC3 Intents:
-- `ViewInstrument`
+- [ViewInstrument](https://fdc3.finos.org/docs/intents/ref/ViewInstrument)
   - it filters the existing trades by the given Instrument Ticker
   - e.g. `{
     type: "fdc3.instrument",
@@ -26,7 +26,7 @@ The demo listens to 3 FDC3 Intents:
       ticker: "MSFT"
     }
     }`
-- `ViewContact`
+- [ViewContact](https://fdc3.finos.org/docs/1.2/intents/ref/ViewContact)
   - it filters the existing trades by the given Contact email
   - e.g. `{
     type: "fdc3.contact",
@@ -34,7 +34,7 @@ The demo listens to 3 FDC3 Intents:
     email: "test@mail.com"
     }
     }`
-- `ViewQuote`
+- [ViewQuote](https://fdc3.finos.org/docs/1.2/intents/ref/ViewQuote)
   - logs the context
 
 ### Finance Plugin
