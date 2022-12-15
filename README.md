@@ -90,6 +90,7 @@ const financeOptions: FinancePluginOptions = {
       `IN :: Context Broadcast(${type})`,
       JSON.stringify(context)
     );
+    // it filters the rows by the given ticker/email
     handleIncomingContextBroadcast(context, adaptableApi);
   },
 };
