@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@adaptabletools/adaptable-react-aggrid": "13.1.1-canary.0",
-    "@adaptabletools/adaptable-plugin-finance": "13.1.1-canary.0",
+    "@adaptabletools/adaptable-react-aggrid": "13.1.1",
+    "@adaptabletools/adaptable-plugin-finance": "13.1.1",
     "@ag-grid-community/client-side-row-model": "28.2.1",
     "@ag-grid-community/core": "28.2.1",
     "@ag-grid-community/react": "28.2.1",

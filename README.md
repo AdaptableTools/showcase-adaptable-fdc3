@@ -1,5 +1,8 @@
 # AdapTable FDC3 Integration Showcase
 
+<img src="public/adaptable_fdc3.gif" height="300" />
+
+
 This is a very basic example of FDC3 interop capabilities in AdapTable.
 
 It provides a small [AdapTable React](https://docs.adaptabletools.com/learn/react-overview) instance which contains some dummy Instrument data.
